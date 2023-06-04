@@ -5,8 +5,9 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Custom_Compendium_Creator" xmlns:views="clr-namespace:Custom_Compendium_Creator.Views"
         mc:Ignorable="d"
-        Title="Custom Compendium Creator" Height="450" Width="800"
-        Style="{DynamicResource CustomWindowStyle}">
+        Title="Custom Compendium Creator" Height="600" Width="1024"
+        Style="{DynamicResource CustomToolWindowStyle}"
+        ResizeMode="NoResize">
     <Window.Resources>
         <DropShadowBitmapEffect x:Key="NormalShadow" ShadowDepth="2" Softness="0.2" Opacity="0.64"/>
     </Window.Resources>
@@ -62,6 +63,6 @@
             </MenuItem>
         </Menu>
 
-        <views:CompendiumView />
+        <views:FeatListView />
     </Grid>
 </Window>

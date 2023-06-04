@@ -159,5 +159,8 @@
     <Folder Include="Commands\" />
     <Folder Include="View Models\" />
   </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\Back.png" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

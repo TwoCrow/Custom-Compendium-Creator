@@ -25,7 +25,6 @@
                 <ColumnDefinition Width="auto"/>
             </Grid.ColumnDefinitions>
 
-
             <Button Grid.Row="0" Grid.Column="0" Content="New Compendium" FontSize="18" Width="175" Height="40" Margin="40,20,20,0"/>
             <Button Grid.Row="0" Grid.Column="1" Content="Load Compendium" FontSize="18" Width="175" Height="40" Margin="40,20,20,0"/>
         </Grid>

@@ -10,11 +10,13 @@ namespace Custom_Compendium_Creator.Models
     public class Feat
     {
         public string Name { get; }
+        public string Summary { get; }
         public string Description { get; }
 
-        public Feat(string name, string description)
+        public Feat(string name, string summary, string description)
         {
             this.Name = name;
+            this.Summary = summary;
             this.Description = description;
         }
     }

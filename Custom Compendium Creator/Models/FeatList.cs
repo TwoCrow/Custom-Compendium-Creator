@@ -7,7 +7,13 @@ using System.Threading.Tasks;
 namespace Custom_Compendium_Creator.Models
 {
     // Contains the list of all Feats
-    class FeatList
+    public class FeatList
     {
+        private List<Feat> feats;
+
+        public FeatList()
+        {
+            feats = new List<Feat>();
+        }
     }
 }

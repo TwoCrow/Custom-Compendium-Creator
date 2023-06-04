@@ -72,6 +72,18 @@
       <DependentUpon>LightTheme.xaml</DependentUpon>
     </Compile>
     <Compile Include="Themes\ThemeControllercs.cs" />
+    <Compile Include="Views\CompendiumView.xaml.cs">
+      <DependentUpon>CompendiumView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\FeatListView.xaml.cs">
+      <DependentUpon>FeatListView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\FeatView.xaml.cs">
+      <DependentUpon>FeatView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\HomeView.xaml.cs">
+      <DependentUpon>HomeView.xaml</DependentUpon>
+    </Compile>
     <Page Include="MainWindow.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
@@ -99,6 +111,22 @@
     <Page Include="Themes\LightTheme.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Views\CompendiumView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\FeatListView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\FeatView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\HomeView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
     </Page>
   </ItemGroup>
   <ItemGroup>
@@ -130,7 +158,6 @@
   <ItemGroup>
     <Folder Include="Commands\" />
     <Folder Include="View Models\" />
-    <Folder Include="Views\" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

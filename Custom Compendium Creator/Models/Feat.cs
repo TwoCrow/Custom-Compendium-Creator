@@ -7,7 +7,15 @@ using System.Threading.Tasks;
 namespace Custom_Compendium_Creator.Models
 {
     // Base level of Feats
-    class Feat
+    public class Feat
     {
+        public string Name { get; }
+        public string Description { get; }
+
+        public Feat(string name, string description)
+        {
+            this.Name = name;
+            this.Description = description;
+        }
     }
 }

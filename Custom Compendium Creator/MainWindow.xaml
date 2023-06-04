@@ -3,7 +3,7 @@
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-        xmlns:local="clr-namespace:Custom_Compendium_Creator"
+        xmlns:local="clr-namespace:Custom_Compendium_Creator" xmlns:views="clr-namespace:Custom_Compendium_Creator.Views"
         mc:Ignorable="d"
         Title="Custom Compendium Creator" Height="450" Width="800"
         Style="{DynamicResource CustomWindowStyle}">
@@ -14,35 +14,54 @@
     <Grid Margin="5">
         <Menu VerticalAlignment="Top">
             <MenuItem Header="File">
-                <MenuItem Header="Open Compendium" InputGestureText="CTRL + O" Template="{DynamicResource SingleDropDownMenuItem}">
+                <MenuItem Header="New Compendium" InputGestureText="CTRL + N" Template="{DynamicResource SingleDropDownMenuItem}">
                     
                 </MenuItem>
-            </MenuItem>
-            <MenuItem Header="Edit">
+                <MenuItem Header="Load Compendium">
 
+                </MenuItem>
+                <MenuItem Header="Save Compendium">
+
+                </MenuItem>
+                <MenuItem Header="Save Compendium As">
+
+                </MenuItem>
             </MenuItem>
-            <MenuItem Header="Themes">
-                <MenuItem Header="Light" Click="ChangeTheme" Uid="0">
-                    <MenuItem.Icon>
-                        <Rectangle Stroke="#FF848484" Fill="#FFE8E8E8" StrokeThickness="2" StrokeLineJoin="Round" BitmapEffect="{StaticResource NormalShadow}" />
-                    </MenuItem.Icon>
+            <MenuItem Header="Settings">
+                <MenuItem Header="Open Last Compendium On Start">
+
                 </MenuItem>
-                <MenuItem Header="Colorful Light" Click="ChangeTheme" Uid="1">
-                    <MenuItem.Icon>
-                        <Rectangle Stroke="#FF2C7FF5" Fill="#FFE8E8E8" StrokeThickness="2" StrokeLineJoin="Round" BitmapEffect="{StaticResource NormalShadow}" />
-                    </MenuItem.Icon>
+
+                <MenuItem Header="Themes">
+                    <MenuItem Header="Light" Click="ChangeTheme" Uid="0">
+                        <MenuItem.Icon>
+                            <Rectangle Stroke="#FF848484" Fill="#FFE8E8E8" StrokeThickness="2" StrokeLineJoin="Round" BitmapEffect="{StaticResource NormalShadow}" />
+                        </MenuItem.Icon>
+                    </MenuItem>
+                    <MenuItem Header="Colorful Light" Click="ChangeTheme" Uid="1">
+                        <MenuItem.Icon>
+                            <Rectangle Stroke="#FF2C7FF5" Fill="#FFE8E8E8" StrokeThickness="2" StrokeLineJoin="Round" BitmapEffect="{StaticResource NormalShadow}" />
+                        </MenuItem.Icon>
+                    </MenuItem>
+                    <MenuItem Header="Dark" Click="ChangeTheme" Uid="2">
+                        <MenuItem.Icon>
+                            <Rectangle Stroke="#FF404040" Fill="#FF1B1B1B" StrokeThickness="2" StrokeLineJoin="Round" BitmapEffect="{StaticResource NormalShadow}" />
+                        </MenuItem.Icon>
+                    </MenuItem>
+                    <MenuItem Header="Colorful Dark" Click="ChangeTheme" Uid="3">
+                        <MenuItem.Icon>
+                            <Rectangle Stroke="#FF2C7FF5" Fill="#FF1B1B1B" StrokeThickness="2" StrokeLineJoin="Round" BitmapEffect="{StaticResource NormalShadow}" />
+                        </MenuItem.Icon>
+                    </MenuItem>
                 </MenuItem>
-                <MenuItem Header="Dark" Click="ChangeTheme" Uid="2">
-                    <MenuItem.Icon>
-                        <Rectangle Stroke="#FF404040" Fill="#FF1B1B1B" StrokeThickness="2" StrokeLineJoin="Round" BitmapEffect="{StaticResource NormalShadow}" />
-                    </MenuItem.Icon>
-                </MenuItem>
-                <MenuItem Header="Colorful Dark" Click="ChangeTheme" Uid="3">
-                    <MenuItem.Icon>
-                        <Rectangle Stroke="#FF2C7FF5" Fill="#FF1B1B1B" StrokeThickness="2" StrokeLineJoin="Round" BitmapEffect="{StaticResource NormalShadow}" />
-                    </MenuItem.Icon>
+            </MenuItem>
+            <MenuItem Header="Help">
+                <MenuItem Header="User Guide">
+
                 </MenuItem>
             </MenuItem>
         </Menu>
+
+        <views:CompendiumView />
     </Grid>
 </Window>

@@ -157,10 +157,27 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Commands\" />
+    <Folder Include="Images\" />
     <Folder Include="View Models\" />
   </ItemGroup>
   <ItemGroup>
-    <Resource Include="Images\Back.png" />
+    <Resource Include="Resources\Images\Back.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\Images\Bullets.png" />
+    <Resource Include="Resources\Images\Copy.png" />
+    <Resource Include="Resources\Images\Cut.png" />
+    <Resource Include="Resources\Images\DecreaseIndent.png" />
+    <Resource Include="Resources\Images\IncreaseIndent.png" />
+    <Resource Include="Resources\Images\Numbers.png" />
+    <Resource Include="Resources\Images\Paste.png" />
+    <Resource Include="Resources\Images\Redo.png" />
+    <Resource Include="Resources\Images\Subscript.png" />
+    <Resource Include="Resources\Images\Superscript.png" />
+    <Resource Include="Resources\Images\Undo.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\Images\Table.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

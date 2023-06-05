@@ -5,8 +5,135 @@
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              xmlns:local="clr-namespace:Custom_Compendium_Creator.Views"
              mc:Ignorable="d" 
-             d:DesignHeight="450" d:DesignWidth="800">
-    <Grid>
-            
+             d:DesignHeight="750" d:DesignWidth="1024">
+    <Grid Margin="5,15,5,5">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="auto"/>
+            <RowDefinition Height="auto"/>
+            <RowDefinition Height="auto"/>
+        </Grid.RowDefinitions>
+
+        <Grid Grid.Row="0">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="auto"/>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="auto"/>
+            </Grid.ColumnDefinitions>
+
+            <!--<Button Grid.Column="0" FontSize="18" Width="30" Height="30" Margin="10">
+                <Image Source="/resources/images/back.png"></Image>
+            </Button>-->
+            <Button Grid.Column="0" Content="&lt;" FontSize="18" Width="30" Height="30" Margin="10"/>
+            <TextBlock Grid.Column="1" FontSize="36" Text="Feat" VerticalAlignment="Top" HorizontalAlignment="Left" Margin="5"/>
+            <Button Grid.Column="2" Content="Save" FontSize="18" Width="175" Height="40" Margin="10"/>
+        </Grid>
+
+        <Grid Grid.Row="1">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="auto"/>
+                <RowDefinition Height="auto"/>
+                <RowDefinition Height="auto"/>
+                <RowDefinition Height="auto"/>
+                <RowDefinition Height="auto"/>
+                <RowDefinition Height="auto"/>
+                <RowDefinition Height="auto"/>
+                <RowDefinition Height="auto"/>
+                <RowDefinition Height="auto"/>
+            </Grid.RowDefinitions>
+
+            <TextBlock Grid.Row="0" FontSize="24" Text="Name" HorizontalAlignment="Left" Margin="10,10,10,0"/>
+            <TextBlock Grid.Row="1" FontSize="12" Text="The name of the Feat." FontStyle="Italic" HorizontalAlignment="Left" Margin="10,0,10,5"/>
+            <RichTextBox Grid.Row="2" Margin="10 0 10 0" FontSize="16" AcceptsReturn="False" MaxHeight="23"/>
+
+            <TextBlock Grid.Row="3" FontSize="24" Text="Summary" HorizontalAlignment="Left" Margin="10,10,10,0"/>
+            <TextBlock Grid.Row="4" FontSize="12" Text="A summary of the Feat's description." FontStyle="Italic" HorizontalAlignment="Left" Margin="10,0,10,5"/>
+            <RichTextBox Grid.Row="5" Margin="10 0 10 0" FontSize="16" AcceptsReturn="False" MaxHeight="23"/>
+
+            <TextBlock Grid.Row="6" FontSize="24" Text="Description" HorizontalAlignment="Left" Margin="10,10,10,0"/>
+            <TextBlock Grid.Row="7" FontSize="12" Text="A description of the benefits, traits, abilities, etc. this Feat provides." FontStyle="Italic" HorizontalAlignment="Left" Margin="10,0,10,5"/>
+            <!--<RichTextBox Grid.Row="8" Margin="10 0 10 0" FontSize="16" MinHeight="270" MaxHeight="270"/>-->
+        </Grid>
+
+        <Grid Grid.Row="2">
+
+            <!-- Set the styles for the tool bar. -->
+            <Grid.Resources>
+                <Style TargetType="{x:Type Button}" x:Key="formatTextStyle">
+                    <Setter Property="FontFamily" Value="Palatino Linotype"></Setter>
+                    <Setter Property="Width" Value="30"></Setter>
+                    <Setter Property="FontSize" Value ="14"></Setter>
+                    <Setter Property="CommandTarget" Value="{Binding ElementName=mainRTB}"></Setter>
+                </Style>
+
+                <Style TargetType="{x:Type Button}" x:Key="formatImageStyle">
+                    <Setter Property="Width" Value="30"></Setter>
+                    <Setter Property="CommandTarget" Value="{Binding ElementName=mainRTB}"></Setter>
+                </Style>
+            </Grid.Resources>
+
+            <DockPanel>
+                <ToolBar Height="30" DockPanel.Dock="Top">
+                    <Button Style="{StaticResource formatImageStyle}" Command="ApplicationCommands.Cut" ToolTip="Cut">
+                        <Image Source="/resources/images/cut.png"></Image>
+                    </Button>
+                    <Button Style="{StaticResource formatImageStyle}" Command="ApplicationCommands.Copy" ToolTip="Copy">
+                        <Image Source="/resources/images/copy.png"></Image>
+                    </Button>
+                    <Button Style="{StaticResource formatImageStyle}" Command="ApplicationCommands.Paste" ToolTip="Paste">
+                        <Image Source="/resources/images/paste.png"></Image>
+                    </Button>
+                    <Button Style="{StaticResource formatImageStyle}" Command="ApplicationCommands.Undo" ToolTip="Undo">
+                        <Image Source="/resources/images/undo.png"></Image>
+                    </Button>
+                    <Button Style="{StaticResource formatImageStyle}" Command="ApplicationCommands.Redo" ToolTip="Redo">
+                        <Image Source="/resources/images/redo.png"></Image>
+                    </Button>
+
+                    <Button Style="{StaticResource formatTextStyle}" Command="EditingCommands.ToggleBold" ToolTip="Bold">
+                        <TextBlock FontWeight="Bold">B</TextBlock>
+                    </Button>
+                    <Button Style="{StaticResource formatTextStyle}" Command="EditingCommands.ToggleItalic" ToolTip="Italic">
+                        <TextBlock FontStyle="Italic" FontWeight="Bold">I</TextBlock>
+                    </Button>
+                    <Button Style="{StaticResource formatTextStyle}" Command="EditingCommands.ToggleUnderline" ToolTip="Underline">
+                        <TextBlock TextDecorations="Underline" FontWeight="Bold">U</TextBlock>
+                    </Button>
+
+                    <Button Style="{StaticResource formatImageStyle}" Command="EditingCommands.ToggleSuperscript" ToolTip="Superscript">
+                        <Image Source="/resources/images/superscript.png"></Image>
+                    </Button>
+                    <Button Style="{StaticResource formatImageStyle}" Command="EditingCommands.ToggleSubscript" ToolTip="Subscript">
+                        <Image Source="/resources/images/subscript.png"></Image>
+                    </Button>
+
+                    <Button Style="{StaticResource formatImageStyle}" Command="EditingCommands.ToggleBullets" ToolTip="Bullets">
+                        <Image Source="/resources/images/bullets.png"></Image>
+                    </Button>
+                    <Button Style="{StaticResource formatImageStyle}" Command="EditingCommands.ToggleNumbering" ToolTip="Numbering">
+                        <Image Source="/resources/images/numbers.png"></Image>
+                    </Button>
+
+                    <Button Style="{StaticResource formatImageStyle}" Command="EditingCommands.IncreaseIndentation" ToolTip="Increase Indent">
+                        <Image Source="/resources/images/increaseindent.png"></Image>
+                    </Button>
+                    <Button Style="{StaticResource formatImageStyle}" Command="EditingCommands.DecreaseIndentation" ToolTip="Decrease Indent">
+                        <Image Source="/resources/images/decreaseindent.png"></Image>
+                    </Button>
+                    
+                    <Label>Table Dimensions:</Label>
+                    <TextBox x:Name="RowInput" Margin="5,0,0,0" Width="25" PreviewTextInput="NumberValidationTextBox"/>
+                    <Label>Rows</Label>
+                    <Label>X</Label>
+                    <TextBox x:Name="ColumnInput" Margin="5,0,0,0" Width="25" PreviewTextInput="NumberValidationTextBox"/>
+                    <Label>Columns</Label>
+
+                    <Button Style="{StaticResource formatImageStyle}" Click="InsertTable" ToolTip="Insert Table">
+                        <Image Source="/resources/images/table.png"></Image>
+                    </Button>
+
+                </ToolBar>
+                <RichTextBox x:Name="rtb" SpellCheck.IsEnabled="True" AcceptsTab="True" Margin="10,5,10,0" FontSize="16" MinHeight="350" MaxHeight="350" VerticalScrollBarVisibility="Auto"></RichTextBox>
+            </DockPanel>
+        </Grid>
     </Grid>
 </UserControl>

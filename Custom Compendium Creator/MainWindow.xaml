@@ -4,6 +4,7 @@
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Custom_Compendium_Creator" xmlns:views="clr-namespace:Custom_Compendium_Creator.Views"
+        xmlns:vms="clr-namespace:Custom_Compendium_Creator.View_Models"
         mc:Ignorable="d"
         Title="Custom Compendium Creator" Height="750" Width="1024"
         Style="{DynamicResource CustomToolWindowStyle}"
@@ -13,10 +14,27 @@
     </Window.Resources>
     
     <Grid Margin="5">
+        <Grid.Resources>
+            <DataTemplate DataType="{x:Type vms:HomeViewModel}">
+                <views:HomeView/>
+            </DataTemplate>
+            <DataTemplate DataType="{x:Type vms:CompendiumViewModel}">
+                <views:CompendiumView/>
+            </DataTemplate>
+            <DataTemplate DataType="{x:Type vms:FeatListViewModel}">
+                <views:FeatListView/>
+            </DataTemplate>
+            <DataTemplate DataType="{x:Type vms:EditFeatViewModel}">
+                <views:FeatView/>
+            </DataTemplate>
+        </Grid.Resources>
+
+        <ContentControl Content="{Binding CurrentViewModel}"/>
+
         <Menu VerticalAlignment="Top">
             <MenuItem Header="File">
                 <MenuItem Header="New Compendium" InputGestureText="CTRL + N" Template="{DynamicResource SingleDropDownMenuItem}">
-                    
+
                 </MenuItem>
                 <MenuItem Header="Load Compendium">
 
@@ -62,7 +80,5 @@
                 </MenuItem>
             </MenuItem>
         </Menu>
-
-        <views:FeatView />
     </Grid>
 </Window>

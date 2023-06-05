@@ -19,24 +19,21 @@
                 <ColumnDefinition Width="auto"/>
             </Grid.ColumnDefinitions>
 
-            <Button Grid.Column="0" FontSize="18" Width="30" Height="30" Margin="10">
+            <Button Command="{Binding ReturnCommand}" Content="&lt;"  Grid.Column="0" FontSize="18" Width="30" Height="30" Margin="10"/>
+            <!--<Button Grid.Column="0" FontSize="18" Width="30" Height="30" Margin="10">
                 <Image Source="C:\Users\Patrick\source\repos\Custom Compendium Creator\Custom Compendium Creator\Images\Back.png"></Image>
-            </Button>
+            </Button>-->
             <TextBlock Grid.Column="1" FontSize="36" Text="Feats" VerticalAlignment="Top" HorizontalAlignment="Left" Margin="5"/>
-            <Button Grid.Column="2" Content="Add Feat" FontSize="18" Width="175" Height="40" Margin="10"/>
+            <Button Command="{Binding AddFeatCommand}" Content="Add Feat" Grid.Column="2" FontSize="18" Width="175" Height="40" Margin="10"/>
         </Grid>
 
-        <ListView Grid.Row="1" Margin="10" HorizontalAlignment="Center" Width="984" Height="630">
-            <ListViewItem/>
-            <ListViewItem/>
-            <ListViewItem/>
-            <ListViewItem/>
+        <ListView ItemsSource="{Binding Feats}" Grid.Row="1" Margin="10" HorizontalAlignment="Center" Width="984" Height="630">
             <ListView.View>
                 <GridView>
                     <GridViewColumn Header="Name" Width="350">
                         <GridViewColumn.CellTemplate>
                             <DataTemplate>
-                                <TextBlock Text="Test"/>
+                                <TextBlock Text="{Binding Name}"/>
                             </DataTemplate>
                         </GridViewColumn.CellTemplate>
                     </GridViewColumn>
@@ -44,7 +41,7 @@
                     <GridViewColumn Header="Summary" Width="543">
                         <GridViewColumn.CellTemplate>
                             <DataTemplate>
-                                <TextBlock Text="Test"/>
+                                <TextBlock Text="{Binding Summary}"/>
                             </DataTemplate>
                         </GridViewColumn.CellTemplate>
                     </GridViewColumn>
@@ -52,7 +49,7 @@
                     <GridViewColumn Header="" Width="47">
                         <GridViewColumn.CellTemplate>
                             <DataTemplate>
-                                <Button Content="Edit" Width="35"/>
+                                <Button Command="{Binding EditFeatCommand}" Content="Edit" Width="35"/>
                             </DataTemplate>
                         </GridViewColumn.CellTemplate>
                     </GridViewColumn>
@@ -60,7 +57,7 @@
                     <GridViewColumn Header="" Width="32">
                         <GridViewColumn.CellTemplate>
                             <DataTemplate>
-                                <Button Content="X" Width="20"/>
+                                <Button Command="{Binding DeleteFeatCommand}" Content="X" Width="20"/>
                             </DataTemplate>
                         </GridViewColumn.CellTemplate>
                     </GridViewColumn>

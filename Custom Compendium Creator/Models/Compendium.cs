@@ -10,16 +10,14 @@ namespace Custom_Compendium_Creator.Models
     public class Compendium
     {
         // Compendium Save File Fields
-        public string Name { get; }
+        public string Name { get; } // Name of the Compendium
 
         // Category Lists
-        private FeatList featList;
+        public FeatList FeatList { get; }
 
-        public Compendium(string name)
+        public Compendium()
         {
-            this.Name = name;
-
-            featList = new FeatList();
+            FeatList = new FeatList();
         }
     }
 }

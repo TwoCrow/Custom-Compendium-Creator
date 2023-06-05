@@ -10,11 +10,13 @@
         <Grid.RowDefinitions>
             <RowDefinition Height="auto"/>
             <RowDefinition Height="auto"/>
+            <RowDefinition Height="auto"/>
         </Grid.RowDefinitions>
 
-        <TextBlock Grid.Row="0" FontSize="36" Text="Select a Category" VerticalAlignment="Top" HorizontalAlignment="Center"/>
+        <TextBlock Grid.Row="0" FontSize="42" Text="Compendium Name" VerticalAlignment="Top" HorizontalAlignment="Center"/>
+        <TextBlock Grid.Row="1" FontSize="36" Text="Select a Category" VerticalAlignment="Top" HorizontalAlignment="Center"/>
 
-        <Grid Grid.Row="1" HorizontalAlignment="Center">
+        <Grid Grid.Row="2" HorizontalAlignment="Center">
             <Grid.RowDefinitions>
                 <RowDefinition Height="auto"/>
                 <RowDefinition Height="auto"/>
@@ -30,7 +32,7 @@
             <Button Grid.Row="0" Grid.Column="1" Content="Classes" FontSize="18" Width="175" Height="40" Margin="10"/>
             <Button Grid.Row="0" Grid.Column="2" Content="NPCs" FontSize="18" Width="175" Height="40" Margin="10"/>
             <Button Grid.Row="1" Grid.Column="0" Content="Backgrounds" FontSize="18" Width="175" Height="40" Margin="10"/>
-            <Button Grid.Row="1" Grid.Column="1" Content="Feats" FontSize="18" Width="175" Height="40" Margin="10"/>
+            <Button Command="{Binding OpenFeatList}" Grid.Row="1" Grid.Column="1" Content="Feats" FontSize="18" Width="175" Height="40" Margin="10"/>
             <Button Grid.Row="1" Grid.Column="2" Content="Spells" FontSize="18" Width="175" Height="40" Margin="10"/>
             <Button Grid.Row="2" Grid.Column="0" Content="Items" FontSize="18" Width="175" Height="40" Margin="10"/>
             <Button Grid.Row="2" Grid.Column="1" Content="Traits" FontSize="18" Width="175" Height="40" Margin="10"/>

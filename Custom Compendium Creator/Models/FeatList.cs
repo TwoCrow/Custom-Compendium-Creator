@@ -15,5 +15,15 @@ namespace Custom_Compendium_Creator.Models
         {
             feats = new List<Feat>();
         }
+
+        public List<Feat> GetAllFeats()
+        {
+            return feats;
+        }
+
+        public void AddFeat(Feat feat)
+        {
+            feats.Add(feat);
+        }
     }
 }

@@ -38,6 +38,7 @@
     <Reference Include="PresentationFramework.Aero2" />
     <Reference Include="System" />
     <Reference Include="System.Data" />
+    <Reference Include="System.Windows.Forms" />
     <Reference Include="System.Xml" />
     <Reference Include="Microsoft.CSharp" />
     <Reference Include="System.Core" />
@@ -56,9 +57,20 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="Commands\CommandBase.cs" />
+    <Compile Include="Commands\DeleteFeatCommand.cs" />
+    <Compile Include="Commands\EditFeatCommand.cs" />
+    <Compile Include="Commands\NavigateCommand.cs" />
+    <Compile Include="Commands\CancelFeatCommand.cs" />
+    <Compile Include="Commands\SaveFeatCommand.cs" />
     <Compile Include="Models\Compendium.cs" />
     <Compile Include="Models\Feat.cs" />
     <Compile Include="Models\FeatList.cs" />
+    <Compile Include="Models\UserSettings.cs" />
+    <Compile Include="Services\NavigationService.cs" />
+    <Compile Include="Stores\NavigationStore.cs" />
+    <Compile Include="View Models\FeatViewModel.cs" />
+    <Compile Include="Views\RichTextBoxHelper.cs" />
     <Compile Include="Themes\ColourfulDarkTheme.xaml.cs">
       <DependentUpon>ColourfulDarkTheme.xaml</DependentUpon>
     </Compile>
@@ -72,6 +84,12 @@
       <DependentUpon>LightTheme.xaml</DependentUpon>
     </Compile>
     <Compile Include="Themes\ThemeControllercs.cs" />
+    <Compile Include="View Models\CompendiumViewModel.cs" />
+    <Compile Include="View Models\FeatListViewModel.cs" />
+    <Compile Include="View Models\EditFeatViewModel.cs" />
+    <Compile Include="View Models\HomeViewModel.cs" />
+    <Compile Include="View Models\MainViewModel.cs" />
+    <Compile Include="View Models\ViewModelBase.cs" />
     <Compile Include="Views\CompendiumView.xaml.cs">
       <DependentUpon>CompendiumView.xaml</DependentUpon>
     </Compile>
@@ -156,9 +174,7 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="Commands\" />
     <Folder Include="Images\" />
-    <Folder Include="View Models\" />
   </ItemGroup>
   <ItemGroup>
     <Resource Include="Resources\Images\Back.png" />

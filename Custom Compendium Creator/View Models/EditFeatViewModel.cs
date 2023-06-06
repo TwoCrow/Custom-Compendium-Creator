@@ -7,6 +7,7 @@ using System.Windows.Input;
 using Custom_Compendium_Creator.Commands;
 using Custom_Compendium_Creator.Models;
 using Custom_Compendium_Creator.Services;
+using Custom_Compendium_Creator.Stores;
 
 namespace Custom_Compendium_Creator.View_Models
 {
@@ -76,10 +77,19 @@ namespace Custom_Compendium_Creator.View_Models
             SaveFeatCommand = new SaveFeatCommand(featListNavigationService, compendium, this);
             CancelFeatCommand = new CancelFeatCommand(featListNavigationService);
 
-            //this.feat = feat;
-            //this.name = feat.Name;
-            //this.summary = feat.Summary;
-            //this.description = feat.Description;
+            // Load feat from Feat Storage
+            LoadFeat(FeatStore.featVM);
+        }
+
+        public void LoadFeat(FeatViewModel featVM)
+        {
+            if (featVM != null && FeatStore.IsExistingFeat)
+            {
+                this.name = featVM.Name;
+                this.prerequisite = featVM.Prerequisite;
+                this.summary = featVM.Summary;
+                this.description = featVM.Description;
+            }
         }
     }
 }

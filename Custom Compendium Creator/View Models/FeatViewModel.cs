@@ -3,13 +3,15 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows.Input;
+using Custom_Compendium_Creator.Commands;
 using Custom_Compendium_Creator.Models;
 
 namespace Custom_Compendium_Creator.View_Models
 {
     public class FeatViewModel : ViewModelBase
     {
-        private Feat feat;
+        public Feat Feat { get; }
 
         private string name;
         public string Name
@@ -69,6 +71,7 @@ namespace Custom_Compendium_Creator.View_Models
 
         public FeatViewModel(Feat feat)
         {
+            this.Feat = feat;
             this.name = feat.Name;
             this.prerequisite = feat.Prerequisite;
             this.summary = feat.Summary;

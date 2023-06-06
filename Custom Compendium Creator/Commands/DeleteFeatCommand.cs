@@ -8,9 +8,14 @@ namespace Custom_Compendium_Creator.Commands
 {
     public class DeleteFeatCommand : CommandBase
     {
+        public DeleteFeatCommand()
+        {
+
+        }
+
         public override void Execute(object parameter)
         {
-            var test = 1;
+
         }
     }
 }

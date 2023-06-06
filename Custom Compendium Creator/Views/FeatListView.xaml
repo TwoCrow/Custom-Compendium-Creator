@@ -27,7 +27,7 @@
             <Button Command="{Binding AddFeatCommand}" Content="Add Feat" Grid.Column="2" FontSize="18" Width="175" Height="40" Margin="10"/>
         </Grid>
 
-        <ListView ItemsSource="{Binding Feats}" Grid.Row="1" Margin="10" HorizontalAlignment="Center" Width="984" Height="630">
+        <ListView x:Name="feats" ItemsSource="{Binding Feats}" Grid.Row="1" Margin="10" HorizontalAlignment="Center" Width="984" Height="630">
             <ListView.View>
                 <GridView>
                     <GridViewColumn Header="Name" Width="350">
@@ -49,7 +49,7 @@
                     <GridViewColumn Header="" Width="47">
                         <GridViewColumn.CellTemplate>
                             <DataTemplate>
-                                <Button Command="{Binding EditFeatCommand}" Content="Edit" Width="35"/>
+                                <Button Command="{Binding ElementName=feats,Path=DataContext.EditFeatCommand}" CommandParameter="{Binding}" Content="Edit" Width="35"/>
                             </DataTemplate>
                         </GridViewColumn.CellTemplate>
                     </GridViewColumn>
@@ -57,7 +57,7 @@
                     <GridViewColumn Header="" Width="32">
                         <GridViewColumn.CellTemplate>
                             <DataTemplate>
-                                <Button Command="{Binding DeleteFeatCommand}" Content="X" Width="20"/>
+                                <Button Command="{Binding ElementName=feats,Path=DataContext.DeleteFeatCommand}" CommandParameter="{Binding}" Content="X" Width="20"/>
                             </DataTemplate>
                         </GridViewColumn.CellTemplate>
                     </GridViewColumn>

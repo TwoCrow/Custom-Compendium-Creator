@@ -8,6 +8,7 @@ using System.Windows.Input;
 using Custom_Compendium_Creator.Commands;
 using Custom_Compendium_Creator.Models;
 using Custom_Compendium_Creator.Services;
+using Microsoft.VisualStudio.PlatformUI;
 
 namespace Custom_Compendium_Creator.View_Models
 {
@@ -22,27 +23,36 @@ namespace Custom_Compendium_Creator.View_Models
         public ICommand EditFeatCommand { get; }
         public ICommand DeleteFeatCommand { get; }
 
+        NavigationService featNavigationService;
+
         public FeatListViewModel(NavigationService featNavigationService, NavigationService compendiumNavigationService, Compendium compendium)
         {
-            //AddFeatCommand = new AddFeatCommand();
-            //ReturnCommand = new ReturnCommand();
-            //EditFeatCommand = new EditFeatCommand();
-            //DeleteFeatCommand = new DeleteFeatCommand();
-
-            AddFeatCommand = new NavigateCommand(featNavigationService);
-            ReturnCommand = new NavigateCommand(compendiumNavigationService);
-
+            this.featNavigationService = featNavigationService;
             this.compendium = compendium;
+
+            AddFeatCommand = new AddFeatCommand(featNavigationService);
+            ReturnCommand = new NavigateCommand(compendiumNavigationService);
+            EditFeatCommand = new DelegateCommand<FeatViewModel>(EditFeat);
+            DeleteFeatCommand = new DelegateCommand<FeatViewModel>(RemoveFeatFromList);
 
             feats = new ObservableCollection<FeatViewModel>();
 
-            //feats.Add(new FeatViewModel(new Feat("Feat", "Summary", "Description")));
-            //feats.Add(new FeatViewModel(new Feat("Murder Fucker", "You murder and then fuck", "Description")));
-            //feats.Add(new FeatViewModel(new Feat("Kissy Fingers", "Make the boo boos go away", "Description")));
-            //feats.Add(new FeatViewModel(new Feat("Pickle Eater", "You eat many, many pickles", "Description")));
-            //feats.Add(new FeatViewModel(new Feat("Ticklish", "You're so ticklish! Ha ha ha!", "Description")));
-
             UpdateFeats();
+        }
+
+        public void EditFeat(object obj)
+        {
+            ICommand NavigateAndEditCommand = new EditFeatCommand(featNavigationService, (FeatViewModel)obj);
+            NavigateAndEditCommand.Execute(null);
+            // Navigate to the Edit Feat VM
+            // Pass it the information from the FeatViewModel to populate its fields
+        }
+
+        public void RemoveFeatFromList(object obj)
+        {
+            FeatViewModel featVM = (FeatViewModel)obj;
+            feats.Remove(featVM);
+            compendium.FeatList.RemoveFeat(featVM.Feat);
         }
 
         private void UpdateFeats()

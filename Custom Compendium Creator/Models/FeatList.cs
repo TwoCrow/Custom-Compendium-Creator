@@ -25,5 +25,10 @@ namespace Custom_Compendium_Creator.Models
         {
             feats.Add(feat);
         }
+
+        public void RemoveFeat(Feat feat)
+        {
+            feats.Remove(feat);
+        }
     }
 }

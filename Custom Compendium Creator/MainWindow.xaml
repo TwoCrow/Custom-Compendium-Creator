@@ -42,7 +42,7 @@
                 <MenuItem Header="Save Compendium">
 
                 </MenuItem>
-                <MenuItem Header="Save Compendium As">
+                <MenuItem Header="Save Compendium As" Command="{Binding SaveAsCommand}">
 
                 </MenuItem>
             </MenuItem>

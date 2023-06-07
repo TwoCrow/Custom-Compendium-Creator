@@ -32,7 +32,7 @@ namespace Custom_Compendium_Creator
 
             MainWindow = new MainWindow()
             {
-                DataContext = new MainViewModel(navigationStore)
+                DataContext = new MainViewModel(navigationStore, compendium)
             };
             MainWindow.Show();
 

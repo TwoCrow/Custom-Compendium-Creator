@@ -140,9 +140,8 @@
                     <Button Style="{StaticResource formatImageStyle}" Click="InsertTable" ToolTip="Insert Table">
                         <Image Source="/resources/images/table.png"></Image>
                     </Button>
-
                 </ToolBar>
-                <RichTextBox local:RichTextBoxHelper.DocumentXaml="{Binding Description, Mode=TwoWay}"  x:Name="rtb" SpellCheck.IsEnabled="True" AcceptsTab="True" Margin="10,5,10,0" FontSize="16" MinHeight="270" MaxHeight="270" VerticalScrollBarVisibility="Auto"></RichTextBox>
+                <RichTextBox TextChanged="ConvertRichTextBox" x:Name="rtb" SpellCheck.IsEnabled="True" AcceptsTab="True" Margin="10,5,10,0" FontSize="16" MinHeight="270" MaxHeight="270" VerticalScrollBarVisibility="Auto"></RichTextBox>
             </DockPanel>
         </Grid>
     </Grid>

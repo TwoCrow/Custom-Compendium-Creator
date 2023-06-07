@@ -30,5 +30,13 @@ namespace Custom_Compendium_Creator.Models
         {
             feats.Remove(feat);
         }
+
+        // When a user saves edits to a Feat, apply those changes rather than adding a new feat.
+        public void UpdateFeat(Feat oldFeat, Feat newFeat)
+        {
+            int index = feats.IndexOf(oldFeat);
+
+            feats[index] = newFeat;
+        }
     }
 }

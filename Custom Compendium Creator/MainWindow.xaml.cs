@@ -26,6 +26,9 @@ namespace Custom_Compendium_Creator
         public MainWindow()
         {
             InitializeComponent();
+
+            // TODO: Set this to saved user preferences when that is set up
+            ThemesController.SetTheme(ThemesController.ThemeTypes.ColourfulDark);
         }
 
         private void ChangeTheme(object sender, RoutedEventArgs e)

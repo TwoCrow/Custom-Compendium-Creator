@@ -4,6 +4,8 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Documents;
+using System.Windows.Input;
+using Custom_Compendium_Creator.Commands;
 using Custom_Compendium_Creator.Models;
 using Custom_Compendium_Creator.Stores;
 
@@ -15,8 +17,12 @@ namespace Custom_Compendium_Creator.View_Models
 
         public ViewModelBase CurrentViewModel => navigationStore.CurrentViewModel;
 
-        public MainViewModel(NavigationStore navigationStore)
+        public ICommand SaveAsCommand { get; }
+
+        public MainViewModel(NavigationStore navigationStore, Compendium compendium)
         {
+            SaveAsCommand = new SaveAsCommand(compendium);
+
             this.navigationStore = navigationStore;
 
             navigationStore.CurrentViewModelChanged += OnCurrentViewModelChanged;

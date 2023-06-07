@@ -2,12 +2,12 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Input;
 using Custom_Compendium_Creator.Commands;
 using Custom_Compendium_Creator.Models;
 using Custom_Compendium_Creator.Services;
 using Custom_Compendium_Creator.Stores;
+using Custom_Compendium_Creator.Views;
 
 namespace Custom_Compendium_Creator.View_Models
 {
@@ -74,21 +74,26 @@ namespace Custom_Compendium_Creator.View_Models
 
         public EditFeatViewModel(NavigationService featListNavigationService, Compendium compendium)
         {
-            SaveFeatCommand = new SaveFeatCommand(featListNavigationService, compendium, this);
+            SaveFeatCommand = new SaveFeatCommand(featListNavigationService, compendium, this, FeatStore.featVM);
             CancelFeatCommand = new CancelFeatCommand(featListNavigationService);
 
             // Load feat from Feat Storage
             LoadFeat(FeatStore.featVM);
         }
 
+        // When the user clicks edit on the feat list, this method will load that feat into the edit feat view.
         public void LoadFeat(FeatViewModel featVM)
         {
+            // Only load the feat's information if the feat already exists. 
             if (featVM != null && FeatStore.IsExistingFeat)
             {
                 this.name = featVM.Name;
                 this.prerequisite = featVM.Prerequisite;
                 this.summary = featVM.Summary;
                 this.description = featVM.Description;
+                // We have to set the FeatDescriptionStore here too so that the xaml.cs knows to display the correct text.
+                // I am not a fan of this solution.
+                FeatDescriptionStore.Description = featVM.Description;
             }
         }
     }
